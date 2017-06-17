@@ -1,0 +1,32 @@
+<script type="text/javascript">
+    RED.nodes.registerType('nice-route53-config', {
+        category: 'config',
+        defaults: {
+            name: {value: "", required: true},
+            aws_access_key: {value: "", required: true},
+            aws_secret_key: {value: "", required: true},
+        },
+        label: function () {
+            return this.name||"N/A";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="nice-route53-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-globe"></i> Name for credentials</label>
+        <input type="text" id="node-config-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-aws_access_key"><i class="fa fa-globe"></i> AWS Access Key ID</label>
+        <input type="text" id="node-config-input-aws_access_key">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-aws_secret_key"><i class="fa fa-globe"></i> AWS Secret Key</label>
+        <input type="text" id="node-config-input-aws_secret_key">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="nice-route53-config">
+    <p>A node that stores AWS credentials to be shared between nodes.</p>
+</script>

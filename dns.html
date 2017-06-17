@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    RED.nodes.registerType('dns',{
+        category: 'dns',
+        color: '#a6bbcf',
+        defaults: {
+          name: {value:""},
+          method: {value:"", required: "true"},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "file.png",
+        label: function() {
+            return this.name||"dns";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="dns">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-globe"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="">
+    </div>
+    <div class="form-row">
+        <label for="node-input-method"><i class="fa fa-unlock"></i> Method</label>
+        <select id="node-input-method">
+            <option value="lookup">lookup</option>
+            <option value="resolve">resolve</option>
+            <option value="resolve4">resolve4</option>
+            <option value="resolve6">resolve6</option>
+            <option value="resolveMx">resolveMx</option>
+            <option value="resolveSrv">resolveTxt</option>
+            <option value="resolveSrv">resolveSrv</option>
+            <option value="resolveNs">resolveNs</option>
+            <option value="resolveCname">resolveCname</option>
+            <option value="reverse">reverse</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="dns">
+    <p>A node that makes DNS queries against a specific name server. Uses the <a href="https://millermedeiros.github.io/mdoc/examples/node_api/doc/dns.html#toc">dns</a> nodejs module.</p>
+</script>
