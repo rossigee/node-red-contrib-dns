@@ -13,13 +13,8 @@ module.exports = function(RED) {
                 node.error(err, msg);
               }
               else {
-                if (config.retain_attributes) {
-                  msg.payload = addresses;
-                  node.send(msg);
-                }
-                else {
-                  node.send({payload: addresses});
-                }
+                msg.payload = addresses;
+                node.send(msg);
               }
             };
 
@@ -28,14 +23,9 @@ module.exports = function(RED) {
                 node.error(err, msg);
               }
               else {
-                if (config.retain_attributes) {
-                  msg.payload = address;
-                  msg.family = family;
-                  node.send(msg);
-                }
-                else {
-                  node.send({payload: address, family: family});
-                }
+                msg.payload = address;
+                msg.family = family;
+                node.send(msg);
               }
             };
 
